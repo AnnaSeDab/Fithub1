@@ -53,7 +53,11 @@ body {
 }
 
 .text-black {
-    color: #000 !important;
+    color: black !important;
+}
+
+.bg-black {
+    background: #000 !important;
 }
 
 .border-black {
