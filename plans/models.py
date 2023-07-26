@@ -1,9 +1,9 @@
 from django.db import models
 from datetime import datetime, date
 
+from merchandise.models import Product
 
 class DayPlan(models.Model):
-
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     description = models.TextField()
@@ -29,9 +29,10 @@ class PlanCategory(models.Model):
 
 
 class FitnessPlan(models.Model):
-
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    product = models.ForeignKey(
+        Product, null=False, blank=False, on_delete=models.CASCADE)
     description = models.TextField()
     difficulty = models.CharField(max_length=80)
     plan_category = models.ForeignKey('PlanCategory', null=True, blank=True, on_delete=models.SET_NULL)
@@ -39,13 +40,13 @@ class FitnessPlan(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-    day_one = models.ForeignKey('DayPlan', null=True, blank=True, on_delete=models.SET_NULL)
-    day_two = models.ForeignKey('DayPlan', null=True, blank=True, on_delete=models.SET_NULL)
-    day_three = models.ForeignKey('DayPlan', null=True, blank=True, on_delete=models.SET_NULL)
-    day_four = models.ForeignKey('DayPlan', null=True, blank=True, on_delete=models.SET_NULL)
-    day_five = models.ForeignKey('DayPlan', null=True, blank=True, on_delete=models.SET_NULL)
-    day_six = models.ForeignKey('DayPlan', null=True, blank=True, on_delete=models.SET_NULL)
-    day_seven = models.ForeignKey('DayPlan', null=True, blank=True, on_delete=models.SET_NULL)
+    day_one = models.ForeignKey('DayPlan', related_name='dayone', null=True, blank=True, on_delete=models.SET_NULL)
+    day_two = models.ForeignKey('DayPlan', related_name='daytwo', null=True, blank=True, on_delete=models.SET_NULL)
+    day_three = models.ForeignKey('DayPlan', related_name='daythree', null=True, blank=True, on_delete=models.SET_NULL)
+    day_four = models.ForeignKey('DayPlan', related_name='dayfour', null=True, blank=True, on_delete=models.SET_NULL)
+    day_five = models.ForeignKey('DayPlan', related_name='dayfive', null=True, blank=True, on_delete=models.SET_NULL)
+    day_six = models.ForeignKey('DayPlan', related_name='daysix', null=True, blank=True, on_delete=models.SET_NULL)
+    day_seven = models.ForeignKey('DayPlan', related_name='dayseven', null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.name
