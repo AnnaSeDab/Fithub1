@@ -33,11 +33,9 @@ class FitnessPlan(models.Model):
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
     product = models.ForeignKey(
         Product, null=False, blank=False, on_delete=models.CASCADE)
-    description = models.TextField()
     difficulty = models.CharField(max_length=80)
     plan_category = models.ForeignKey('PlanCategory', null=True, blank=True, on_delete=models.SET_NULL)
     start_day = models.DateField(auto_now_add=True, auto_now=False, blank=True)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     day_one = models.ForeignKey('DayPlan', related_name='dayone', null=True, blank=True, on_delete=models.SET_NULL)
