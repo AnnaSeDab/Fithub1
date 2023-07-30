@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -8,7 +7,6 @@
     </div>
 </div>
 {% endblock %}
-
 {% block content %}
 <div class="overlay"></div>
 <div class="container-fluid">
@@ -21,7 +19,8 @@
                 </a>
                 {% else %}
                 <a href="">
-                    <img class="card-img-top img-fluid" src="/media/Noimageavailable.webp" alt="{{ plan.friendly_name }}">
+                    <img class="card-img-top img-fluid" src="/media/Noimageavailable.webp"
+                        alt="{{ plan.friendly_name }}">
                 </a>
                 {% endif %}
             </div>
@@ -45,14 +44,15 @@
             <form class="form" action="{% url 'add_to_bag' plan.product.id %}" method="POST">
                 {% csrf_token %}
                 <div class="form-row">
-                     <div class="col-12">
+                    <div class="col-12">
                         <input type="submit" class="btn btn-outline-black rounded-0 text-uppercase" value="Add to Bag">
                     </div>
                     <div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>
                     <div class="col-12">
-                        <input class="form-control qty_input" type="hidden" name="quantity" value="1" data-item_id="{{ plan.product.id }}" id="id_qty_{{ plan.product.id }}">  
+                        <input class="form-control qty_input" type="hidden" name="quantity" value="1"
+                            data-item_id="{{ plan.product.id }}" id="id_qty_{{ plan.product.id }}">
                     </div>
                 </div>
             </form>
@@ -65,11 +65,13 @@
                     <tr>
                         <td>
                             <p>{{ plan.day_one.friendly_name }}</p>
-                            <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark" title="View on Youtube" href="{{ plan.day_one.video_url }}">TRY NOW!</a>
+                            <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                                title="View on Youtube" href="{% url 'day' plan.id plan.day_one.id %}">TRY NOW!</a>
                         </td>
                         <td>
-                            <p>{{ plan.day_two.friendly_name }}</p></td>
-                            <br>
+                            <p>{{ plan.day_two.friendly_name }}</p>
+                        </td>
+                        <br>
                         <td>
                             <p>{{ plan.day_three.friendly_name }}</p>
                         </td>
@@ -89,31 +91,82 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <td>
+                            <p>{{ plan.day_one.friendly_name }}</p>
+                        </td>
+                        <td>
+                            <p>{{ plan.day_two.friendly_name }}</p>
+                        </td>
+                        <br>
+                        <td>
+                            <p>{{ plan.day_three.friendly_name }}</p>
+                        </td>
+                        </td>
+                        <td>
+                            <p>{{ plan.day_four.friendly_name }}</p>
+                        </td>
+                        <td>
+                            <p>{{ plan.day_five.friendly_name }}</p>
+                        </td>
+                        </td>
+                        <td>
+                            <p>{{ plan.day_six.friendly_name }}</p>
+                        </td>
+                        <td>
+                            <p>{{ plan.day_seven.friendly_name }}</p>
+                        </td>
                     </tr>
                     <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <td>
+                            <p>{{ plan.day_one.friendly_name }}</p>
+                        </td>
+                        <td>
+                            <p>{{ plan.day_two.friendly_name }}</p>
+                        </td>
+                        <br>
+                        <td>
+                            <p>{{ plan.day_three.friendly_name }}</p>
+                        </td>
+                        </td>
+                        <td>
+                            <p>{{ plan.day_four.friendly_name }}</p>
+                        </td>
+                        <td>
+                            <p>{{ plan.day_five.friendly_name }}</p>
+                        </td>
+                        </td>
+                        <td>
+                            <p>{{ plan.day_six.friendly_name }}</p>
+                        </td>
+                        <td>
+                            <p>{{ plan.day_seven.friendly_name }}</p>
+                        </td>
                     </tr>
                     <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <td>
+                            <p>{{ plan.day_one.friendly_name }}</p>
+                        </td>
+                        <td>
+                            <p>{{ plan.day_two.friendly_name }}</p>
+                        </td>
+                        <br>
+                        <td>
+                            <p>{{ plan.day_three.friendly_name }}</p>
+                        </td>
+                        </td>
+                        <td>
+                            <p>{{ plan.day_four.friendly_name }}</p>
+                        </td>
+                        <td>
+                            <p>{{ plan.day_five.friendly_name }}</p>
+                        </td>
+                        </td>
+                        <td>
+                            <p>{{ plan.day_six.friendly_name }}</p>
+                        </td>
+                        <td>
+                            <p>{{ plan.day_seven.friendly_name }}</p>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -121,8 +174,4 @@
     </div>
 </div>
 {% endblock %}
-
 {% block postloadjs %}
-{{ block.super }}
-<!--{% include 'merchandise/includes/quantity_input_script.html' %}-->
-{% endblock %}
