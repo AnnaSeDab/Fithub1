@@ -13,11 +13,13 @@
         <div class="image-container my-5 product-image">
             {% if profile.fitness_plan.image %}
             <a href="{{ profile.fitness_plan.image.url }}" target="_blank">
-                <img class="card-img-top img-fluid" src="{{ profile.fitness_plan.image.url }}" alt="{{ profile.fitness_plan.friendly_name }}">
+                <img class="card-img-top img-fluid" src="{{ profile.fitness_plan.image.url }}"
+                    alt="{{ profile.fitness_plan.friendly_name }}">
             </a>
             {% else %}
             <a href="">
-                <img class="card-img-top img-fluid" src="/media/Noimageavailable.webp" alt="{{ profile.fitness_plan.friendly_name }}">
+                <img class="card-img-top img-fluid" src="/media/Noimageavailable.webp"
+                    alt="{{ profile.fitness_plan.friendly_name }}">
             </a>
             {% endif %}
         </div>
@@ -30,107 +32,251 @@
                 <tr>
                     <td>
                         <p>{{ profile.fitness_plan.day_one.friendly_name }}</p>
-                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
-                            title="View on Youtube" href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% if profile.fitness_plan.day_one.completed == True %}
+                        <p>!Completed!</p>
+                        <a class="p-2 mt-0 badge badge-white text-black rounded-0 border border-dark" title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Again!</a>
+                        {% else %}
+                            {% if date_now >= profile.fitness_plan.start_day %}
+                            <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                                title="View on Youtube"
+                                href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                            {% endif %}
+                        {% endif %}
                     </td>
                     <td>
                         <p>{{ profile.fitness_plan.day_two.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     <br>
                     <td>
                         <p>{{ profile.fitness_plan.day_three.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     </td>
                     <td>
                         <p>{{ profile.fitness_plan.day_four.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     <td>
                         <p>{{ profile.fitness_plan.day_five.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     </td>
                     <td>
                         <p>{{ profile.fitness_plan.day_six.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     <td>
                         <p>{{ profile.fitness_plan.day_seven.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <p>{{ profile.fitness_plan.day_eight.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     <td>
                         <p>{{ profile.fitness_plan.day_nine.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     <br>
                     <td>
                         <p>{{ profile.fitness_plan.day_ten.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     </td>
                     <td>
                         <p>{{ profile.fitness_plan.day_eleven.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     <td>
                         <p>{{ profile.fitness_plan.day_twelve.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     </td>
                     <td>
                         <p>{{ profile.fitness_plan.day_thirteen.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     <td>
                         <p>{{ profile.fitness_plan.day_fourteen.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <p>{{ profile.fitness_plan.day_fifteen.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     <td>
                         <p>{{ profile.fitness_plan.day_sixteen.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     <br>
                     <td>
                         <p>{{ profile.fitness_plan.day_seventeen.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     </td>
                     <td>
                         <p>{{ profile.fitness_plan.day_eighteen.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     <td>
                         <p>{{ profile.fitness_plan.day_nineteen.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     </td>
                     <td>
                         <p>{{ profile.fitness_plan.day_twenty.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     <td>
                         <p>{{ profile.fitness_plan.day_twentyone.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <p>{{ profile.fitness_plan.day_twentytwo.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     <td>
                         <p>{{ profile.fitness_plan.day_twentythree.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     <br>
                     <td>
                         <p>{{ profile.fitness_plan.day_twentyfour.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     </td>
                     <td>
                         <p>{{ profile.fitness_plan.day_twentyfive.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     <td>
                         <p>{{ profile.fitness_plan.day_twentysix.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     </td>
                     <td>
                         <p>{{ profile.fitness_plan.day_twentyseven.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                     <td>
                         <p>{{ profile.fitness_plan.day_twentyeight.friendly_name }}</p>
+                        {% if date_now >= profile.fitness_plan.start_day %}
+                        <a class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark"
+                            title="View on Youtube"
+                            href="{% url 'day' profile.fitness_plan.id profile.fitness_plan.day_one.id  %}">Workout!</a>
+                        {% endif %}
                     </td>
                 </tr>
             </tbody>

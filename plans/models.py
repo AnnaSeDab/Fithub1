@@ -10,6 +10,7 @@ class DayPlan(models.Model):
     description = models.TextField()
     video_url = models.URLField(max_length=1024, null=True, blank=True)
     is_rest = models.BooleanField(default=False)
+    completed = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
