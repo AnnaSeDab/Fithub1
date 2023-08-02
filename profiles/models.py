@@ -5,6 +5,8 @@ from django.dispatch import receiver
 
 from django_countries.fields import CountryField
 
+from plans.models import FitnessPlan
+
 
 class UserProfile(models.Model):
     """
@@ -19,7 +21,7 @@ class UserProfile(models.Model):
     default_county = models.CharField(max_length=80, null=True, blank=True)
     default_postcode = models.CharField(max_length=20, null=True, blank=True)
     default_country = CountryField(blank_label='Country', null=True, blank=True)
-    fitness_plan = models.CharField(max_length=80, null=True, blank=True)
+    fitness_plan = models.ForeignKey('plans.FitnessPlan', null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.user.username
