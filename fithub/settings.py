@@ -21,10 +21,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-+fpctck1a1f^-gm-^8@3)(#mb!pepr(3zdwn(z_l&$z&b64s45'
+SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['fithub-project-d239b103041c.herokuapp.com',
                  'localhost', '8000-annasedab-fithub1-qladapzylt.us2.codeanyapp.com']
