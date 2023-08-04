@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
-from pathlib import Path
+import dj_database_urlth
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,8 +24,10 @@ SECRET_KEY = 'django-insecure-+fpctck1a1f^-gm-^8@3)(#mb!pepr(3zdwn(z_l&$z&b64s45
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ['fithub-project.herokuapp.com', 'localhost'']
+ALLOWED_HOST
+pp.com']
+ALLOWED_HOSTS = ['fithub-project-d239b103041c.herokuapp.com',
+                 'localhost', '8000-annasedab-fithub1-qladapzylt.us2.codeanyapp.com']
 
 
 # Application definition
