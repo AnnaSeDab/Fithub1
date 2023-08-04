@@ -50,7 +50,6 @@ def complete(request, plan_id, day_id):
     plan = get_object_or_404(FitnessPlan, pk=plan_id)
     day = get_object_or_404(DayPlan, pk=day_id)
 
-    print(day)
     day.completed = True
     day.save(update_fields=['completed'])
 
