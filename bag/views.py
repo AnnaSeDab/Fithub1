@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, HttpResponse, get_object
 from django.contrib import messages
 
 from merchandise.models import Product
+from profiles.models import UserProfile
 
 # Create your views here.
 
@@ -62,7 +63,6 @@ def remove_from_bag(request, item_id):
             bag.pop(item_id)
             messages.success(request, f'Removed {product.name} from your bag')
 
-
         request.session['bag'] = bag
         return HttpResponse(status=200)
 
@@ -82,13 +82,21 @@ def add_to_bag(request, item_id):
     if 'product_size' in request.POST:
         size = request.POST['product_size']
     bag = request.session.get('bag', {})
+    profile = get_object_or_404(UserProfile, user=request.user)
 
+    # Check if user logged in and soes not have a fitness plan already
     if product.is_plan == True:
-        if item_id in list(bag.keys()):
-            messages.warning(request, f'You cannot buy two Fitness Plans at the same time')
-        else:
-            bag[item_id] = quantity
-            messages.success(request, f'Added {product.name} to your bag')
+        if request.user.is_authenticated:
+            if profile.fitness_plan:
+                messages.warning(request, f"You aready purchased a fitness plan. Please contact us at admin@emailaddress.com if you'd like to discuss changing your plan")
+            else:
+                if item_id in list(bag.keys()):
+                    messages.warning(request, f'You cannot buy two Fitness Plans at the same time')
+                else:
+                    bag[item_id] = quantity
+                    messages.success(request, f'Added {product.name} to your bag')
+        else: 
+            messages.warning(request, f'You have to be logged in to purchase a fitness plan')
     else:
         if size:
             if item_id in list(bag.keys()):

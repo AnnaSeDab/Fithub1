@@ -164,7 +164,7 @@ def checkout_success(request, order_number):
 
         for item_id, item_data in bag.items():
             product = get_object_or_404(Product, pk=item_id)
-            # If fitness plan was bought update user profile and start day fiedl
+            # If fitness plan was bought update user profile and start day field
             if product.is_plan == True:
                 product_id = product.id
                 chosen_plan = get_object_or_404(FitnessPlan, product=product_id)
