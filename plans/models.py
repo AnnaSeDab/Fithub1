@@ -11,6 +11,7 @@ class DayPlan(models.Model):
     video_url = models.URLField(max_length=1024, null=True, blank=True)
     is_rest = models.BooleanField(default=False)
     completed = models.BooleanField(default=False)
+    available_from = models.DateField(auto_now_add=False, auto_now=False, null=True, blank=True)
 
     def __str__(self):
         return self.name
